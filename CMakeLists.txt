@@ -113,10 +113,10 @@ endif()
 # Global configuration types
 ################################################################################
 if (CMAKE_SYSTEM_NAME STREQUAL "NintendoSwitch|Android")
-    set(CMAKE_C_FLAGS_DEBUG "-g -ffast-math -DDEBUG")
-    set(CMAKE_CXX_FLAGS_DEBUG "-g -ffast-math -DDEBUG")
-    set(CMAKE_C_FLAGS_RELEASE "-O3 -ffast-math -DNDEBUG")
-    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -ffast-math -DNDEBUG")
+    set(CMAKE_C_FLAGS_DEBUG "-g -ffast-math -DFLOAT_APPROX -DDEBUG")
+    set(CMAKE_CXX_FLAGS_DEBUG "-g -ffast-math -DFLOAT_APPROX -DDEBUG")
+    set(CMAKE_C_FLAGS_RELEASE "-O3 -ffast-math -DFLOAT_APPROX -DNDEBUG")
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -ffast-math -DFLOAT_APPROX -DNDEBUG")
 elseif(MSVC)
     # We need to remove RTC1 as it is not compatible with O2, which we set for some files in DEBUG
     string(REGEX REPLACE "/RTC(su|[1su])" "" CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}")
